@@ -48,12 +48,14 @@ DeepLearning-/
 - **Phase 3:** Model training and evaluation
 - **Phase 4:** Experiment tracking and iteration
 - **Phase 5:** Deployment and inference
-
+ codex/set-up-tensorflow-project-environment-y7yytz
 ## Data Pipeline (Phase 2)
 - `src/data/data_loader.py` loads MNIST, builds train/validation/test splits, and constructs `tf.data` pipelines.
 - `src/utils/config.py` centralizes batch size, image shape, and reproducibility settings.
 - `notebooks/01_data_exploration.ipynb` explores the dataset, visualizes samples, and validates preprocessing.
 
+
+ main
 ## Validation Check
 Run the following to confirm TensorFlow is available:
 ```python
