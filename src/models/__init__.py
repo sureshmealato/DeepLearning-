@@ -1,6 +1,7 @@
 """Model architectures."""
 
 from src.models.ann import build_ann_model
+ codex/set-up-tensorflow-project-environment-jub44x
 from src.models.cnn import build_cnn_model
 
 MODEL_REGISTRY = {
@@ -17,3 +18,7 @@ def build_model(name: str):
 
 
 __all__ = ["MODEL_REGISTRY", "build_ann_model", "build_cnn_model", "build_model"]
+
+
+__all__ = ["build_ann_model"]
+ main

@@ -2,10 +2,14 @@
 
 from __future__ import annotations
 
+ codex/set-up-tensorflow-project-environment-jub44x
 from typing import Dict, Iterable, Tuple
 
 import json
 from pathlib import Path
+
+from typing import Dict, Tuple
+ main
 
 import numpy as np
 import tensorflow as tf
@@ -33,6 +37,7 @@ def evaluate_model(
     return {
         "loss": loss,
         "accuracy": accuracy,
+ codex/set-up-tensorflow-project-environment-jub44x
         "confusion_matrix": confusion_matrix(labels, predictions).tolist(),
         "classification_report": classification_report(labels, predictions, digits=4, output_dict=True),
     }
@@ -53,3 +58,8 @@ def save_evaluation(results: Dict[str, object], output_path: Path | str) -> Path
     with output_path.open("w", encoding="utf-8") as file:
         json.dump(results, file, indent=2)
     return output_path
+
+        "confusion_matrix": confusion_matrix(labels, predictions),
+        "classification_report": classification_report(labels, predictions, digits=4),
+    }
+ main
