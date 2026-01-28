@@ -4,5 +4,10 @@ __pycache__/
 *.pyc
 data/raw/
 !data/raw/.gitkeep
+ codex/set-up-tensorflow-project-environment-y7yytz
+data/processed/
+!data/processed/.gitkeep
+
+ main
 saved_models/
 !saved_models/.gitkeep
