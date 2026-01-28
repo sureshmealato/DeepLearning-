@@ -16,10 +16,19 @@ def train_model(
     config: DataConfig = DEFAULT_DATA_CONFIG,
     model_dir: Path | str = "saved_models",
     monitor: str = "val_accuracy",
+ codex/set-up-tensorflow-project-environment-jub44x
+    log_dir: Path | str = "logs",
+    experiment_name: str = "ann",
+ main
 ) -> tuple[tf.keras.callbacks.History, Path]:
     """Train a model and return the history and best model path."""
     model_dir = Path(model_dir)
     model_dir.mkdir(parents=True, exist_ok=True)
+ codex/set-up-tensorflow-project-environment-jub44x
+    log_dir = Path(log_dir) / experiment_name
+    log_dir.mkdir(parents=True, exist_ok=True)
+
+ main
 
     best_model_path = model_dir / "ann_best.keras"
 
@@ -34,6 +43,10 @@ def train_model(
             monitor=monitor,
             save_best_only=True,
         ),
+ codex/set-up-tensorflow-project-environment-jub44x
+        tf.keras.callbacks.TensorBoard(log_dir=log_dir, histogram_freq=1),
+
+ main
     ]
 
     history = model.fit(

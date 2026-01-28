@@ -2,7 +2,14 @@
 
 from __future__ import annotations
 
+ codex/set-up-tensorflow-project-environment-jub44x
+from typing import Dict, Iterable, Tuple
+
+import json
+from pathlib import Path
+
 from typing import Dict, Tuple
+ main
 
 import numpy as np
 import tensorflow as tf
@@ -30,6 +37,29 @@ def evaluate_model(
     return {
         "loss": loss,
         "accuracy": accuracy,
+ codex/set-up-tensorflow-project-environment-jub44x
+        "confusion_matrix": confusion_matrix(labels, predictions).tolist(),
+        "classification_report": classification_report(labels, predictions, digits=4, output_dict=True),
+    }
+
+
+def evaluate_models(
+    models: Dict[str, tf.keras.Model],
+    dataset: tf.data.Dataset,
+) -> Dict[str, Dict[str, object]]:
+    """Evaluate multiple models and return a mapping of name to metrics."""
+    return {name: evaluate_model(model, dataset) for name, model in models.items()}
+
+
+def save_evaluation(results: Dict[str, object], output_path: Path | str) -> Path:
+    """Save evaluation results to disk as JSON."""
+    output_path = Path(output_path)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with output_path.open("w", encoding="utf-8") as file:
+        json.dump(results, file, indent=2)
+    return output_path
+
         "confusion_matrix": confusion_matrix(labels, predictions),
         "classification_report": classification_report(labels, predictions, digits=4),
     }
+ main
